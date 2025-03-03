@@ -1,0 +1,173 @@
+% Auteur: Tom Broos
+
+\setcounter{section}{-1}
+% Zorg dat de sectie 'Tutorial' aangeduid wordt met een 0.
+
+\section{Tutorial - \textit{Toon dit niet in je verslag}}
+% \section: Begin van een sectie/hoofdstuk.
+\textbf{\textit{Verwijder deze tutorial uit je verslag door een `\%' te schrijven vooraan lijn 44 in MAIN.tex.}}
+\\ \\
+De inhoud van deze tutorial bestaat voornamelijk uit voorbeelden voor de basis opmaak en veelvoorkomende objecten.
+
+\subsection{Opmaak}
+Ten eerste zijn er \textbf{vetgedrukte tekst}, \textit{schuingedrukte tekst}, en \underline{onderlijnde tekst} die de leesbaarheid van een document ten goede kunnen komen.
+\\ \\
+Een nieuwe alinea, met witruimte, start je door twee dubbele backslashes.
+\\ \\
+Uitlijning van de tekst is standaard links maar tekst kan ook
+\begin{center}
+    GECENTREERD worden, alsook
+\end{center}
+\begin{flushright}
+RECHTS UITGELIJND worden
+\end{flushright}
+Ten slotte ondersteunt \LaTeX\ het maken van (genummerde) opsommingen. enkele voorbeelden:
+
+\begin{itemize}
+    \item het eerste punt, 
+    \item het tweede punt,
+    \item etc.
+\end{itemize}
+\begin{enumerate}
+    \item het eerste punt, 
+    \item het tweede punt,
+    \item etc.
+\end{enumerate}
+
+\subsection{Tabellen invoegen}
+% Eenvoudige tabellen en opmaak in tabellen
+Tabellen zijn nuttig om meetresultaten en eventuele verbanden of bijhorende waarden te presenteren. Tabellen, evenals figuren, in \LaTeX\ zijn een omgeving/environment met specifieke attributen zoals de inhoud, het onderschrift, eventuele verwijzingen, etc. Tabel \ref{tab:ref_label} is een goed voorbeeld. 
+
+\begin{table}[h]
+    \centering
+    \caption{Voorbeeldtabel}
+    \begin{tabular}{c r r r}
+        \hline
+        Dim. & Punt 1 & Punt 2 & Punt 3 \\ \hline \hline
+        X & 1,25 & 1,25 & 2,6 \\ \hline
+        Y & 1,25 & 1,25 & 2,6 \\ \hline
+        Z & 1,25 & 1,25 & 2,6 \\ \hline
+    \end{tabular}
+    \label{tab:ref_label}
+\end{table}
+
+\noindent Merk op dat een \textit{tabular} omgeving voldoende is om een tabel te creëren. Binnen deze omgeving is het aantal kolommen bepaald door het aantal letters binnen de accolades na \textit{\{tabular\}}. Elke letter bepaalt de uitlijning binnen de kolom (\textit{c: center, l: left, r: right}), elke verticale streep zorgt voor een aanduiding van de kolom. De dubbele backslash duidt de start van een nieuwe rij aan en het commando \textit{hline} creëert horizontale lijnen. Tabellen zonder verticale of horizontale strepen zijn ook mogelijk door één van deze of beiden weg te laten uit het bovenstaande voorbeeld.
+\\ \\
+Zulke \textit{tabular} wordt echter niet gecentreerd en heeft geen bovenschrift (\textit{caption}) of referentie (\textit{label}). De letter tussen vierkante haken \textit{[h]} geeft  bovendien de gewenste positie aan tabel \ref{tab:ref_label}. Mogelijkheden zijn:
+\begin{itemize}
+    \item h: Here, de tabel wordt zo goed mogelijk tussen de bedoelde stukken tekst ingevoegd;
+    \item t: Top, bovenaan de dichtstbijzijnde pagina;
+    \item b: Bottom, onderaan de dichtstbijzijnde pagina;
+    \item p: Page, op een automatisch ingevoegde pagina exclusief voor tabellen en figuren.
+\end{itemize}
+Extra opties voor tabel- en figuurschikking kan je terugvinden in verschillende paketten.
+\\ \\
+Gebruik best tabel \ref{tab:ref_label} als template voor elke tabel in je verslag. Merk op dat de titel van een tabel er boven staat en de titel van een figuur er onder. 
+
+\subsection{Figuren invoegen}
+% Enkelvoudige en meervoudige figuren, captions, ...
+Figuren zijn vaak nuttig om proefopstellingen en grafieken te tonen. De figuur-omgeving ziet er uit zoals in figuur \ref{fig:single}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.3\textwidth]{Afbeeldingen/Foto1.png}
+    \caption{Voorbeeld van een enkelvoudige figuur}
+    \label{fig:single}
+\end{figure}
+
+\noindent Opnieuw is niet de hele omgeving nodig om een afbeelding in te laden. \textit{includegraphics} volstaat hiervoor maar biedt niet de hele functionaliteit i.v.m. plaatsing, onderschriften en referenties.
+\\ \\
+Referenties voor figuren en tabellen zijn van bijzonder belang in grotere verslagen. Redeneringen en conclusies zijn doorgaans gebaseerd op resultaten die in het verslag niet dichtbij de conclusie staan. Om eenduidig en duidelijk te verwijzen naar de juiste gegevens, vernoem je altijd een figuur of tabel met het juiste nummer. \LaTeX\ houdt deze nummering automatisch bij, ook bij latere toevoeging van andere tabellen/figuren. Het geheel wordt veel beter leesbaar wanneer elk belangrijk object een eigen ID (\textit{label}) en een juiste referentie in de tekst (\textit{ref}) heeft.
+\\ \\
+Het is ook mogelijk om figuren langs en onder elkaar te rangschikken of om verschillende afbeeldingen te combineren als sub-figuren. De eerste methode maakt gebruik van de \textit{minipage} omgeving. Elke afbeelding is hierbij een afzonderlijk figuur met een eigen nummer. Voor een voorbeeld, zie figuren \ref{fig:multi_mini1}, \ref{fig:multi_mini2} en \ref{fig:multi_mini3}.
+\\ \\
+Wanneer afbeeldingen nauw gerelateerd zijn en gelijkaardige data of verbanden aanduiden, is het vaak beter om deze op nemen als sub-figuren in één meervoudige figuur. Dit kan met behulp van \textit{subfigures}. Figuur \ref{fig:subfig} is hier een voorbeeld van.
+\\ \\
+Afbeeldingen in dit voorbeeld zijn gebundeld in een aparte map. Dit is overzichtelijker, zeker voor grotere verslagen.
+\\ \\
+Afbeeldingen met weinig verschillende kleuren (bv. grafieken) zijn geschikt als vectorformaat (.svg, .ai, .eps, etc.) en afbeeldingen met veel kleuren (bv. foto's) zijn geschikt als rasterformaat (.jpeg, .png, .bmp, .tiff, etc.). Als de kwaliteit van de figuur hoog genoeg is kan een figuur met weinig kleuren er nog OK uitzien in rasterformaat. \LaTeX\ ondersteunt elke gangbare rasterextensie, maar enkel de .eps vectorextensie. Converteer nooit een figuur in vectorformaat naar rasterformaat of omgekeerd. 
+
+% Start van de figuur
+\begin{figure}[p]
+    \centering                          % Centreer alle minipages t.o.v. de pagina
+    \begin{minipage}{0.95\textwidth}    % Start van minipage en bepaald breedte
+        \centering                      % Centreer afbeelding t.o.v. minipage
+        \includegraphics[width=0.9\linewidth, ]{Afbeeldingen/Foto1.png}
+        \caption{Afbeelding 1/3 met minipage}
+        \label{fig:multi_mini1}
+    \end{minipage}
+                                        % Witregel opdat volgende minipages zeker onder volgen
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Afbeeldingen/Foto2.png}
+        \caption{Afbeelding 2/3 met minipage}
+        \label{fig:multi_mini2}
+    \end{minipage} %
+    \begin{minipage}{0.45\textwidth}
+        \centering
+        \includegraphics[width=0.9\linewidth]{Afbeeldingen/Foto3.png}
+        \caption{Afbeelding 3/3 met minipage}
+        \label{fig:multi_mini3}
+    \end{minipage}
+\end{figure}
+
+\begin{figure}[p]
+    \centering
+    \begin{subfigure}{0.95\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{Afbeeldingen/Foto1.png}
+        \caption{Afbeelding 1/3 als subfiguur}
+        \label{fig:subfig1}
+    \end{subfigure}
+    
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{Afbeeldingen/Foto2.png}
+        \caption{Afbeelding 2/3 als subfiguur}
+        \label{fig:subfig2}
+    \end{subfigure} %
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=.9\linewidth]{Afbeeldingen/Foto3.png}
+        \caption{Afbeelding 3/3 als subfiguur}
+        \label{fig:subfig3}
+    \end{subfigure}
+    \caption{Voorbeeld van meervoudige figuur}
+    \label{fig:subfig}
+\end{figure}
+
+
+
+\subsection{Berekeningen invoegen}
+Berekeningen en formules zijn weer te geven als vergelijkingen (\textit{equations}) in \LaTeX. Vergelijkingen kunnen ook een referentie label meekrijgen zoals in vergelijking \eqref{eq:Pyth}.
+\begin{equation}
+    a^2 + b^2 = c^2
+    \label{eq:Pyth}
+\end{equation}
+Bij langere uitdrukkingen of uitwerkingen kan het nodig zijn om meerdere regels te gebruiken
+\begin{equation}
+    \begin{split}
+        x_{1,2} & = \frac{-b \pm \sqrt{D}}{2a} \\
+                & = \frac{-b \pm \sqrt{b^2-4ac}}{2a}
+    \end{split}
+\end{equation}
+Daarnaast is het ook mogelijk om wiskundige uitdrukkingen rechtstreeks op te nemen in tekst, zoals hier: $D(ln(x)) = 1/x$. Meer volledige documentatie i.v.m. formules en wiskundige symbolen, is te vinden op Stack Exchange en Overleaf.
+
+\subsection{Een bibliografie schrijven}
+Typisch academisch onderzoek is gebaseerd op talrijke bronnen. Correct verwijzen naar externe bronnen is uiterst belangrijk om plagiaat te vermijden. Een bilbiografie is een geordende verzameling van alle bronverwijzingen aan het einde van je document (maar voor de bijlagen). Afhankelijk van het type bron, volgt een bronverwijzing een bepaalde stijl.
+\\ \\
+\LaTeX\ beschikt over systemen die het opstellen van een bibliografie vergemakkelijken. In deze tutorial stellen we Bibtex voor. Bibtex werkt met een bijkomend \textit{.bib} bestand dat we hier \textit{bibliografie.bib} noemen. Dit bestand moet je zelf handmatig aanvullen met elke bron, een ID per bron en bijhorende gegevens (auteur, titel, uitgave, datum, etc.)
+\\ \\
+Een bronverwijzing ziet er bijvoorbeeld als volgt uit in \LaTeX: \\
+``Volgens Einstein's relativiteitstheorie \cite{einstein} kan men stellen dat $E = mc^2$...".  Hierin is `einstein' het label dat overeenkomt met de bron die beschreven staat in \textit{bibliografie.bib}. Alle overeenkomstige gegevens worden gecombineerd en geordend tot een correcte bronvermelding in de onderstaande sectie. In de tekst is deze verwijzing aangeduid door een getal tussen vierkante haken.
+\\ \\
+Items in de \textit{.bib}-file kunnen behoren tot verschillende soorten bronnen: boeken, artikels, etc. Hoewel de toewijsbare gegevens licht variëren per type bron, zijn er veel overeenkomsten. Auteur, titel en datum/jaar van publicatie zijn enkele belangrijke gegevens voor elke bron. Voor meer informatie, zie:  \url{https://www.overleaf.com/learn/latex/bibliography_management_with_bibtex}
+\\ \\
+Merk op dat een bron die in het \textit{.bib}-bestand staat maar niet vermeld wordt in de tekst, ook niet wordt opgenomen in de finale bibliografie.
+
+\newpage
+% Voeg de bibliografie toe aan de inhoudstafel, dit gebeurt niet automatisch
+\addcontentsline{toc}{subsection}{References}
+% Zorg dat de paginanummering in Romeinse cijfers gebeurt en opnieuw start bij p.I
+\pagenumbering{Roman}
+\setcounter{page}{1}

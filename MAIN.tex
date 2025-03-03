@@ -1,0 +1,66 @@
+\documentclass[a4paper,10pt]{article}
+
+
+%%% ---------------- %%%
+% LaTeX heeft een zekere basisfunctionaliteit maar meestal is deze onvoldoende. Daarvoor bestaan er bijkomende pakketten.
+%
+% P.S. In een regel is alles na '%' een opmerking. Deze worden niet opgenomen bij compilatie van het document.
+%%% ---------------- %%%
+\usepackage[dutch]{babel}   % Spellingcorrectie en titels in NL
+\usepackage{graphicx}       % Pakket voor afbeeldingen
+\usepackage[colorlinks, linkcolor=black, citecolor=black, urlcolor=black]{hyperref}
+\usepackage{geometry}       % Pakket voor pagina-indeling
+\geometry{tmargin=3cm, bmargin=2.2cm, lmargin=2.2cm, rmargin=2cm}
+\usepackage{todonotes}      % Pakket voor figuur 'placeholders'
+\usepackage{subcaption}
+\usepackage{ifthen}
+\usepackage{amsmath}        % Pakket voor vergelijkingen
+\usepackage{url}            % Pakket voor url's als referentie
+\usepackage[numbib]{tocbibind} % Tool om Referenties een section number te geven
+\input{Python/Python_stijl} % Laadt de .tex waarin de layout voor Picocode gedefinieerd is
+\usepackage{subfiles}       % Pakket laat toe aparte .tex files te compileren
+\usepackage{parskip}        % Pakket zorgt voor een universele indentation van de alinea's
+
+\begin{document}
+
+\input{Titlepage}
+%%% ---------------- %%%
+% LaTeX maakt het mogelijk om  te werken met verschillende sub-documenten die je bundelt in één hoofddocument (hier: MAIN.tex). Vul je naam en r-nummer in op de titelpagina in titlepage.tex. Voor grotere projecten kan het nuttig zijn om een sub- document per hoofdstuk te maken of voor bv. bijlagen.
+%%% ---------------- %%%
+
+%%% ---------------- %%%
+% LaTeX laat ook toe om automatisch een inhoudstafel te genereren. Deze update automatisch wanneer er secties bijkomen/verdwijnen/...
+%%% ---------------- %%%
+\tableofcontents
+\newpage
+
+%%% ---------------- %%%
+% Doorgaans is de paginanummering in Romeinse cijfers voor de inhoudstafel, het abstract en andere delen die buiten de hoofdtekst horen. Ook bijlagen krijgen typisch een romeinse nummering. Pagina's in de hoofdtekst zijn wel aangegeven met Arabische cijfers en deze telling begint terug bij 1
+%%% ---------------- %%%
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+%%% ---------------- %%%
+% tutorial.tex bevat een overzicht van de belangrijkste commando's  en structuren die je nodig kan hebben in dit verslag. Maak van de twee onderstaande regels een comment/opmerking alvorens in te dienen !!! 
+%%% ---------------- %%%
+\input{Tutorial.tex}
+\newpage
+
+%%% ---------------- %%%
+% De hoofdstukken voor het verslag worden hier ingevoerd. Ze zijn aan te passen door ze aan te klikken in het menu links.
+%%% ---------------- %%%
+\input{Hoofdstukken/Inleiding.tex}
+\input{Hoofdstukken/Ontwerp.tex} 
+\input{Hoofdstukken/Experimenten.tex} 
+\input{Hoofdstukken/Projectinformatie} 
+\input{Hoofdstukken/Besluit.tex} 
+
+% De bibliografie-stijl bepaalt in hoe de verwijzingen in de tekst verschijnen en in welke volgorde bronnen opgelijst staan.
+\bibliographystyle{abbrv}
+% Voeg de bibliografie in op basis van het document bibliografie.bib
+\bibliography{Bibliografie}
+
+\newpage
+\input{Hoofdstukken/Bijlagen.tex} 
+
+\end{document}
